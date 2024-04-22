@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel header="Cadastrar Aluno">
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nome"/>
+                    <p:inputText value="#{alBean.alunoSelecionado.nome}"/>
+                    <p:outputLabel value="Endereço"/>
+                    <p:inputText value="#{alBean.alunoSelecionado.endereco}"/>
+
+                </h:panelGrid>
+                <br/>
+                <p:commandButton value="Salvar" action="#{alBean.salvar()}"/>
+
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

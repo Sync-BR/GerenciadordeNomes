@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <p:dataTable id="tabela" var="aluno" value="#{alBean.alunos}" selectionMode="single"
+                         selection="#{alBean.alunoSelecionado}" rowKey="#{aluno.nome}">
+                <p:column headerText="Nome">
+                    <h:outputText value="#{aluno.nome}" />
+                </p:column>
+
+                <p:column headerText="Endereço">
+                    <h:outputText value="#{aluno.endereco}" />
+                </p:column>
+
+                <p:column headerText="Excluir">
+                    <h:commandButton value="Excluir" action="#{alBean.excluir()}">
+                        <f:setPropertyActionListener value="#{aluno}" target="#{alBean.alunoSelecionado}"/>
+                    </h:commandButton>
+                </p:column>
+                <p:column headerText="Editar">
+                    <h:commandButton value="Editar" action="#{alBean.editar()}">
+                        <f:setPropertyActionListener value="#{aluno}" target="#{alBean.alunoSelecionado}"/>
+                    </h:commandButton>
+                </p:column>
+
+
+                <f:facet name="footer">
+                    <h:commandButton value="Inserir" action="#{alBean.novo()}"/>
+                </f:facet>
+
+            </p:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
